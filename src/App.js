@@ -32,13 +32,6 @@ class App extends Component {
           secondsElapsed: (this.state.secondsElapsed - 1),
         })
       }, 1000);
-      if (this.state.secondsElapsed === 0) {
-        clearInterval(this.incrimenter);
-        this.setState({
-          secondsElapsed: 500,
-          isRunning: false,
-        });
-    }
   }
 }
 
@@ -49,9 +42,28 @@ class App extends Component {
     clearInterval(this.incrimenter);
 }
 
-
+  checkForBreak = () => {
+    if (!this.state.breakTime && this.state.secondsElapsed === -1) {
+      clearInterval(this.incrimenter);
+      this.setState({
+        secondsElapsed: 300,
+        isRunning: false,
+        breakTime: true
+      });
+  } else if (this.state.breakTime && this.state.secondsElapsed === -1) {
+    clearInterval(this.incrimenter);
+    this.setState({
+      secondsElapsed: 1500,
+      isRunning: false,
+      breaktime: false
+    });
+  }
+}
 
   render() {
+
+    this.checkForBreak();
+
     return (
       <div className="App">
       <Container id="leaf-container">
@@ -76,14 +88,17 @@ class App extends Component {
       </Row>
       <Row id="button-row">
         <Col>
-        <Button className="btn-success btn-lg"
-          onClick={this.handleStart}
-          >Start</Button>
+          <Button className="btn-success btn-lg"
+            onClick={this.handleStart}
+            >Start</Button>
         </Col>
         <Col>
-        <Button className="btn-danger btn-lg"
-          onClick={this.handleStop}
-          >Stop</Button>
+          <Button className="btn-secondary btn-lg">Break</Button>
+        </Col>
+        <Col>
+          <Button className="btn-danger btn-lg"
+            onClick={this.handleStop}
+            >Stop</Button>
         </Col>
       </Row>
           
