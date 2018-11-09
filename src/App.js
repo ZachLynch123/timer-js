@@ -13,7 +13,6 @@ class App extends Component {
     }
   }
 
-
   getSeconds = () => {
     return ('0' + this.state.secondsElapsed % 60).slice(-2);
   }
@@ -41,6 +40,22 @@ class App extends Component {
     });
     clearInterval(this.incrimenter);
 }
+
+  handleWork = () => {
+    this.setState({
+      secondsElapsed: 1500,
+      isRunning: false,
+    });
+    clearInterval(this.incrimenter);
+  }
+
+  handleBreak = () => {
+    this.setState({
+      secondsElapsed: 300,
+      isRunning: false
+    });
+    clearInterval(this.incrimenter);
+  }
 
   checkForBreak = () => {
     if (!this.state.breakTime && this.state.secondsElapsed === -1) {
@@ -93,7 +108,14 @@ class App extends Component {
             >Start</Button>
         </Col>
         <Col>
-          <Button className="btn-secondary btn-lg">Break</Button>
+          <Button className="btn-info btn-lg"
+            onClick={this.handleWork}
+          >Work</Button>
+        </Col>
+        <Col>
+          <Button className="btn-dark btn-lg"
+          onClick={this.handleBreak}
+          >Break</Button>
         </Col>
         <Col>
           <Button className="btn-danger btn-lg"
