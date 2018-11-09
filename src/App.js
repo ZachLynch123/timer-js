@@ -96,29 +96,29 @@ class App extends Component {
         <p className="h1" id="x">My "Apple" Watch</p>
         </Col>
       </Row>
-      <Row className="w-25 p3">
+      <Row className="w-30 p3">
         <Col id="timer-box">
         <h1 className="timer">{this.getMinutes()}:{this.getSeconds()}</h1>
         </Col>
       </Row>
       <Row id="button-row">
         <Col>
-          <Button className="btn-success btn-lg"
+          <Button className="btn-success btn-md"
             onClick={this.handleStart}
             >Start</Button>
         </Col>
         <Col>
-          <Button className="btn-info btn-lg"
+          <Button className="btn-info btn-md"
             onClick={this.handleWork}
           >Work</Button>
         </Col>
         <Col>
-          <Button className="btn-dark btn-lg"
+          <Button className="btn-dark btn-md"
           onClick={this.handleBreak}
           >Break</Button>
         </Col>
         <Col>
-          <Button className="btn-danger btn-lg"
+          <Button className="btn-danger btn-md"
             onClick={this.handleStop}
             >Stop</Button>
         </Col>

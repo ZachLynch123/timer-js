@@ -49,8 +49,7 @@
 }
 
 #timer-box {
-  margin-top: 100px;
-  margin-left: 240px;
+  margin: 100px 200px 0;
   background: #272727;
   border-radius: 20px;
   box-shadow: 1px 1px 1px black;
@@ -68,3 +67,26 @@ button {
   box-shadow: 3px 3px 3px black;
 }
 
+@media (max-width: 451px) {
+
+  .leaf{
+    margin-left: 100px;
+  }
+
+  #tomato {
+    height: 400px;
+  }
+
+  #x {
+    margin-top: 6 0px;
+  }
+
+  #timer-box {
+    margin: 30px 70px 0;
+  }
+
+  #button-row {
+    padding-top: 50px;
+  }
+
+}
