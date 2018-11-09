@@ -7,7 +7,9 @@ class App extends Component {
     super(props);
     
     this.state = {
-      secondsElapsed: 1500
+      secondsElapsed: 1500,
+      isRunning: false,
+      breakTime: false
     }
   }
 
@@ -21,14 +23,29 @@ class App extends Component {
   }
 
   handleStart = () => {
-    this.incrimenter = setInterval(() => {
+    if (!this.state.isRunning){
       this.setState({
-        secondsElapsed: (this.state.secondsElapsed - 1)
-      })
-    }, 1000);
+        isRunning: true
+      });
+      this.incrimenter = setInterval(() => {
+        this.setState({
+          secondsElapsed: (this.state.secondsElapsed - 1),
+        })
+      }, 1000);
+      if (this.state.secondsElapsed === 0) {
+        clearInterval(this.incrimenter);
+        this.setState({
+          secondsElapsed: 500,
+          isRunning: false,
+        });
+    }
+  }
 }
 
   handleStop = () => {
+    this.setState({
+      isRunning: false
+    });
     clearInterval(this.incrimenter);
 }
 
