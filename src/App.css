@@ -31,7 +31,7 @@
   text-shadow: 3px 3px 3px black;
 }
 
-#tomato {
+#apple {
   margin: auto ;
   max-width: 600px;
   text-align: center;
@@ -73,7 +73,7 @@ button {
     margin-left: 100px;
   }
 
-  #tomato {
+  #apple {
     height: 400px;
   }
 
