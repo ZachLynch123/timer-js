@@ -93,7 +93,7 @@ class App extends Component {
       <Container id="apple">
       <Row>
         <Col>
-        <p className="h1" id="x">My "Apple" Watch</p>
+        <p className="h1" id="x">Mela Timer</p>
         </Col>
       </Row>
       <Row className="w-30 p3">
